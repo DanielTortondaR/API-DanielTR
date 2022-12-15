@@ -406,20 +406,25 @@ function eliminarJuego(nombreJuego){
 }
 
 
-function comentarios(){
+function verComentarios(){
+
+let footer = document.getElementById("footer");
 
     if(localStorage.getItem("comentarios") != null){
 
-        let footer = document.getElementById("footer");
+       
+
         let comentarios = JSON.parse(localStorage.getItem("comentarios"));
-
-        for(let x; x < comentarios.length; x++){
-            let coment = document.createElement("div");
-
+        let coment = document.createElement("div");
+        
+        for(let x = 0; x < comentarios.length; x++){
+            
+            console.log("bbbbbbbbbb");
             let textArea = document.createElement("textarea");
             textArea.id = "Com"+ x;
-            textArea.setAttribute("readonly","readonly");
-            textArea.innerText = comentarios[x];
+            textArea.className = "comentariosViejos"
+            /* textArea.setAttribute("readonly","readonly"); */
+            textArea.value = comentarios[x];
             
             let bottonEliminarC = document.createElement("button");
             bottonEliminarC.id = "Pub"+ x;
@@ -427,10 +432,12 @@ function comentarios(){
 
             coment.appendChild(textArea);
             coment.appendChild(bottonEliminarC);
-
+            console.log("aaaaaaaaaaaa");
             
-            footer.appendChild(coment);
+            
         }
+        console.log("ccccccccc");
+        footer.appendChild(coment);
     }
     
 }
@@ -439,25 +446,38 @@ function comentarios(){
 function publicarComentario(){
     let nuevoComentario = document.getElementById("areaTextoNuevo");
     let comentarios;
-    if(nuevoComentario.textContent != ""){
+    if(nuevoComentario.value != ""){
        if(localStorage.getItem("comentarios") != null){
 
             comentarios = localStorage.getItem("comentarios");
             comentarios = JSON.parse(comentarios);
-            comentarios.push(nuevoComentario.textContent);
+            comentarios.push(nuevoComentario.value);
 
         }else{
 
-            let comentarios = [nuevoComentario.textContent];
+            comentarios = [nuevoComentario.value];
 
         }
-        comentarios = JSON.stringify(favoritos);
+        comentarios = JSON.stringify(comentarios);
+        console.log(nuevoComentario.value);
         localStorage.setItem("comentarios", comentarios); 
     }
-    
+    nuevoComentario.value = "";
+    verComentarios();
 
 }
 
-function eliminarComentario(){
-    
+function eliminarComentario(idComentario){
+
+    let id = idComentario.substring(3);
+
+    if(localStorage.getItem("comentarios") != null){
+
+        comentarios = localStorage.getItem("comentarios");
+        comentarios = JSON.parse(comentarios);
+        let eliminado = comentarios.splice(id, 1);
+        comentarios = JSON.stringify(favoritos);
+        localStorage.setItem("comentarios", comentarios);
+    }
+
 }
