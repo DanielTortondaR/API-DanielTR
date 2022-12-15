@@ -1,0 +1,227 @@
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12;
+    background-color: rgb(48, 45, 45);
+}
+
+#content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2em 1em;
+    box-sizing: border-box;
+}
+
+#header {
+	background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    margin: 0 auto 10px;
+    text-align: center;
+    width: 100%;
+    min-height: 150px;
+    padding: 30px 180px 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#divSearch {
+    width: 500px;
+    height: 65px;
+    /* background: #fffbeb;
+    border: rgb(100, 109, 122) solid; */
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 10px;
+  
+  }
+  #buscar {
+    width: 400px;
+    height: 55px;
+    background: #fffbeb;
+    border: none;
+    font-size: 15px;
+    border-radius: 15px;
+    border: black solid;
+    padding-left: 25px;
+  }
+  #divBuscarButton{
+    width: 50px;
+    height: 50px;
+    background: #fffbeb;
+    border: black solid;
+    border-radius: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+
+  #buscarButton {
+    width: 30px;
+    height: 30px;
+  }
+
+#column-left {
+	background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    overflow: auto;
+    text-align: center;
+    width: 340px;
+    height: 932px;
+}
+
+#central {
+	background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    float: right;
+    min-height: 930px;
+    margin-bottom: 10px;
+    width: 1500px;
+}
+
+#footer {
+	background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: 10px;
+    text-align: center;
+    width: 78%;
+    min-height: 100px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 365px;
+}
+
+.botones{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 90%;
+}
+
+#generos{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;  
+}
+#generosMenu{
+    width: 300px;
+    max-height: 243px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 50px;
+    line-height: 30px;
+    background: rgb(211, 199, 199);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+#plataformas{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;  
+}
+#plataformaMenu{
+    width: 300px;
+    max-height: 243px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 50px;
+    line-height: 30px;
+    background: rgb(211, 199, 199);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+#aplicarFiltros{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 90%;
+    
+}
+
+#logo{
+    float: left;
+}
+
+#juegosTablero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.juego{
+    box-sizing: border-box;
+    border: black 1px solid;
+    width: 33%;
+    margin: 2% auto;
+}
+.imagenJuego{
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+}
+.nombreJuego{
+    cursor: pointer; 
+}
+.imagenJuegoVer{
+    object-fit: cover;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 5px 5px, rgb(0 0 0 / 19%) 0px 3px 5px 0px;
+}
+
+#datosJuego{
+    margin-top: -45%;
+    margin-left: 8%;
+    width: min-content;
+    max-width: 30%;
+    height: 80%;
+    width: fit-content;
+    background: rgb(48, 45, 45);
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+#paginacion{
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+}
+
+#botonFavoritos{
+    text-decoration: none;
+    color: rgb(40, 150, 45);
+}
+
+#comentarioNuevo{
+    width: min-content;
+}
+
+#areaTexto{
+    width: 400px;
+    height: 100px;
+}

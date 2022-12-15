@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamingWorld</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="Rawg.js" defer ></script>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <img id="logo" src="imágenes/logo.png" onclick="location.reload()">
+            <div id="divSearch">
+                <input type="search" id="buscar" placeholder="Buscar por nombre..." />
+                <div id="divBuscarButton">
+                    <input type="image" src="imágenes/lupa.png" id="buscarButton" onclick="buscarJuegos()"/>
+                </div>
+            </div>
+            <a href="#" id="botonFavoritos" onclick="irFavoritos()"><h1>Favoritos</h1></a>
+        </div>
+
+        <div id="column-left"><h1>Filtros</h1>
+            <div id="generos">
+                <button id="botonGeneros" class="botones" onclick="desplegarGeneros()"><h2>Géneros</h2></button>
+                
+            </div>
+            <br>
+            <div id="plataformas">
+                <button id="botonPlataformas" class="botones" onclick="desplegarPlataformas()"><h2>Plataformas</h2></button>
+                
+            </div>
+            <br><br>
+            <button id="aplicarFiltros" onclick="aplicarFiltros()"><h2>Aplicar filtros</h2></button>
+        </div>
+        <div id="central">
+        </div>
+    </div>
+    <div id="footer">
+        <div id="comentarioNuevo">
+            <textarea placeholder="Danos tu opinión..." id="areaTexto"></textarea>
+            <button id="publicar" onclick="">Publicar</button>
+        </div>
+        
+
+    </div>
+</body>
+</html>
