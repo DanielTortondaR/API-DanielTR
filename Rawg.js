@@ -409,7 +409,10 @@ function eliminarJuego(nombreJuego){
 function comentarios(){
 
     if(localStorage.getItem("comentarios") != null){
+
+        let footer = document.getElementById("footer");
         let comentarios = JSON.parse(localStorage.getItem("comentarios"));
+
         for(let x; x < comentarios.length; x++){
             let coment = document.createElement("div");
 
@@ -424,7 +427,37 @@ function comentarios(){
 
             coment.appendChild(textArea);
             coment.appendChild(bottonEliminarC);
+
+            
+            footer.appendChild(coment);
         }
     }
+    
+}
+
+
+function publicarComentario(){
+    let nuevoComentario = document.getElementById("areaTextoNuevo");
+    let comentarios;
+    if(nuevoComentario.textContent != ""){
+       if(localStorage.getItem("comentarios") != null){
+
+            comentarios = localStorage.getItem("comentarios");
+            comentarios = JSON.parse(comentarios);
+            comentarios.push(nuevoComentario.textContent);
+
+        }else{
+
+            let comentarios = [nuevoComentario.textContent];
+
+        }
+        comentarios = JSON.stringify(favoritos);
+        localStorage.setItem("comentarios", comentarios); 
+    }
+    
+
+}
+
+function eliminarComentario(){
     
 }
