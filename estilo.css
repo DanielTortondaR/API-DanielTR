@@ -94,7 +94,8 @@ body {
 }
 
 #footer {
-	background-color: #EBE9EA;
+    gap: 20px;
+    background-color: #EBE9EA;
     border: 1px solid #D2D2D2;
     border-radius: 8px 8px 8px 8px;
     margin-top: 10px;
@@ -104,11 +105,11 @@ body {
     padding: 15px;
     display: flex;
     margin-left: 365px;
-    flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .botones{
@@ -222,14 +223,32 @@ body {
 
 #comentarioNuevo{
     width: min-content;
+    margin: 0 auto;
 }
 
 #areaTextoNuevo{
-    width: 400px;
+    width: 600px;
     height: 100px;
 }
 
-#areaTextoViejo{
-    width: 400px;
-    height: 100px;
+#comentariosViejos{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
+
+.cometarioViejo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.areaTextoViejo{
+    width: 400px;
+    min-height: 40px;
+}
+

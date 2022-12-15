@@ -148,7 +148,7 @@ async function inicio(direccion){
 
 
 inicio(`${Rawg}games${key}&ordering=rating-released&page_size=12`);
-
+verComentarios();
 
 
 function buscarJuegos(){
@@ -171,6 +171,8 @@ function aplicarFiltros(){
     let filtros="";
     let fitroGeneros = "";
     let filtroPlataformas = "";
+
+    
 
     if(generosVisibles){
         for(let x = 0; x < dataGeneros.count; x++){
@@ -203,8 +205,7 @@ function aplicarFiltros(){
     }
     filtros = fitroGeneros.concat(filtroPlataformas);
 
-    document.getElementById("mejor").remove();
-    document.getElementById("juegosTablero").remove();
+    borrar();
 
     inicio(`${Rawg}games${key}${filtros}&ordering=rating-released&page_size=12`)
     
@@ -416,23 +417,26 @@ let footer = document.getElementById("footer");
 
         let comentarios = JSON.parse(localStorage.getItem("comentarios"));
         let coment = document.createElement("div");
-        
+        coment.id = "comentariosViejos"
         for(let x = 0; x < comentarios.length; x++){
             
-            console.log("bbbbbbbbbb");
+            let cometarioViejo = document.createElement("div");
+            cometarioViejo.className = "cometarioViejo";
+
             let textArea = document.createElement("textarea");
             textArea.id = "Com"+ x;
-            textArea.className = "comentariosViejos"
-            /* textArea.setAttribute("readonly","readonly"); */
+            textArea.className = "areaTextoViejo"
+            textArea.setAttribute("readonly","readonly");
             textArea.value = comentarios[x];
             
             let bottonEliminarC = document.createElement("button");
             bottonEliminarC.id = "Pub"+ x;
             bottonEliminarC.innerText = "Eliminar";
+            bottonEliminarC.addEventListener("click", function(){eliminarComentario(x)})
 
-            coment.appendChild(textArea);
-            coment.appendChild(bottonEliminarC);
-            console.log("aaaaaaaaaaaa");
+            cometarioViejo.appendChild(textArea);
+            cometarioViejo.appendChild(bottonEliminarC);
+            coment.appendChild(cometarioViejo);
             
             
         }
@@ -446,6 +450,8 @@ let footer = document.getElementById("footer");
 function publicarComentario(){
     let nuevoComentario = document.getElementById("areaTextoNuevo");
     let comentarios;
+    let viejo = document.getElementById("comentariosViejos");
+
     if(nuevoComentario.value != ""){
        if(localStorage.getItem("comentarios") != null){
 
@@ -463,21 +469,25 @@ function publicarComentario(){
         localStorage.setItem("comentarios", comentarios); 
     }
     nuevoComentario.value = "";
+    
+    viejo.remove();
     verComentarios();
 
 }
 
 function eliminarComentario(idComentario){
-
-    let id = idComentario.substring(3);
+    let viejo = document.getElementById("comentariosViejos");
 
     if(localStorage.getItem("comentarios") != null){
 
         comentarios = localStorage.getItem("comentarios");
         comentarios = JSON.parse(comentarios);
-        let eliminado = comentarios.splice(id, 1);
-        comentarios = JSON.stringify(favoritos);
+        let eliminado = comentarios.splice(idComentario, 1);
+        comentarios = JSON.stringify(comentarios);
         localStorage.setItem("comentarios", comentarios);
+
+        viejo.remove();
+        verComentarios();
     }
 
 }
