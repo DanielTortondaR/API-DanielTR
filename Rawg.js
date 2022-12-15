@@ -408,8 +408,23 @@ function eliminarJuego(nombreJuego){
 
 function comentarios(){
 
-    if(localStorage.getItem("comentarios") == null){
-        let cajaComentario = document.createElement("p");
+    if(localStorage.getItem("comentarios") != null){
+        let comentarios = JSON.parse(localStorage.getItem("comentarios"));
+        for(let x; x < comentarios.length; x++){
+            let coment = document.createElement("div");
+
+            let textArea = document.createElement("textarea");
+            textArea.id = "Com"+ x;
+            textArea.setAttribute("readonly","readonly");
+            textArea.innerText = comentarios[x];
+            
+            let bottonEliminarC = document.createElement("button");
+            bottonEliminarC.id = "Pub"+ x;
+            bottonEliminarC.innerText = "Eliminar";
+
+            coment.appendChild(textArea);
+            coment.appendChild(bottonEliminarC);
+        }
     }
-    JSON.parse(localStorage.getItem("comentarios"));
+    
 }
