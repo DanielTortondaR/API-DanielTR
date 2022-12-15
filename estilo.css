@@ -103,9 +103,12 @@ body {
     min-height: 100px;
     padding: 15px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     margin-left: 365px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .botones{
